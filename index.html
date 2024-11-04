@@ -51,15 +51,16 @@
               name="category"
               class="poppins-regular"
             >
-              <option value="shopping">Shopping</option>
-              <option value="rent">Rent</option>
-              <option value="health">Health</option>
-              <option value="essentials">Essentials</option>
+              <option selected>Select Category</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Rent">Rent</option>
+              <option value="Health">Health</option>
+              <option value="Essentials">Essentials</option>
             </select>
           </div>
           <div>
             <label for="date">Date</label>
-            <input type="date" class="poppins-regular" id="expense-date"/>
+            <input type="date" class="poppins-regular" id="expense-date" />
           </div>
           <span class="button-container">
             <button id="expense-button" class="poppins-bold expense-button">
@@ -106,6 +107,7 @@
               name="category"
               class="poppins-regular"
             >
+              <option selected>Select Category</option>
               <option value="Salary">Salary</option>
               <option value="Investment Return">Investment Return</option>
               <option value="allowance">Allowance</option>
@@ -114,7 +116,7 @@
           </div>
           <div>
             <label for="date">Date</label>
-            <input type="date" class="poppins-regular"  id="income-date"/>
+            <input type="date" class="poppins-regular" id="income-date" />
           </div>
           <span class="button-container">
             <button id="income-button" class="poppins-bold income-button">
@@ -193,8 +195,7 @@
     </nav>
     <body>
       <section class="dashboard">
-        <div class="heading">
-        </div>
+        <div class="heading"></div>
         <div class="banners">
           <div class="ballance">
             <h4>Ballance</h4>
@@ -215,7 +216,6 @@
             <th>Amount</th>
             <th>Category</th>
             <th>Date</th>
-            
           </table>
         </div>
       </section>

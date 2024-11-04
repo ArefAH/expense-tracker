@@ -1,5 +1,5 @@
-const addIncome = document.getElementById("add-income");
-const addExpense = document.getElementById("add-expense");
+const incomeToggle = document.getElementById("add-income");
+const expenseToggle = document.getElementById("add-expense");
 const expenseModal = document.getElementById("expense-modal");
 const incomeModal = document.getElementById("income-modal");
 const incomeCancel = document.getElementById("income-cancel");
@@ -14,3 +14,6 @@ const expenseName = document.getElementById("expense-name");
 const expenseAmount = document.getElementById("expense-amount");
 const expenseCategory = document.getElementById("expense-category");
 const expenseDate = document.getElementById("expense-date");
+const ballanceAmount = document.getElementById("ballance");
+const totalIncome = document.getElementById("total-income");
+const totalExpense = document.getElementById("total-expense");
