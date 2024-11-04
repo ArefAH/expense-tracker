@@ -16,6 +16,7 @@ let expenseData = {
   date: "",
 };
 
+
 const inputChange = (inputElement, storage, key) => {
   inputElement.addEventListener("change", (event) => {
     storage[key] = event.target.value;
@@ -45,19 +46,13 @@ inputChange(expenseCategory, expenseData, "category");
 inputChange(expenseDate, expenseData, "date");
 
 incomeButton.addEventListener("click", () => {
-  ballance += +incomeData.amount;
-  incomeValue += +incomeData.amount;
-  totalIncome.textContent = incomeValue;
-  ballanceAmount.textContent = ballance;
   addIncome();
+  localStorage.setItem("income", JSON.stringify(income));
 });
 
 expenseButton.addEventListener("click", () => {
-  ballance -= +expenseData.amount;
-  expensesValue += +expenseData.amount;
-  totalExpense.textContent = expensesValue;
-  ballanceAmount.textContent = ballance;
   addExpense();
+  localStorage.setItem("expenses", JSON.stringify(expenses));
 });
 
 const addExpense = () => {
