@@ -29,10 +29,12 @@
 a {
   text-decoration: none;
   color: #7a7b7a;
+  transition: all 0.2s ease-in-out;
 }
 
 a:hover {
   color: #00f7ff;
+  transition: all 0.2s ease-in-out;
 }
 
 body {
@@ -124,6 +126,12 @@ b {
   height: 50%;
   background-color: #262d34;
   border-radius: 15px;
+}
+
+.x-button{
+  position: absolute;
+  top: 260px;
+  right: 500px;
 }
 
 @media only screen and (max-width: 1086px) {
