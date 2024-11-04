@@ -30,7 +30,35 @@ const updateTotals = () => {
   ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
 };
 
+
 window.addEventListener("load", updateTotals);
+
+const addTableBody = () => {
+  list.innerHTML = "";
+
+  income.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.amount}</td>
+        <td>${item.category}</td>
+        <td>${item.date}</td>
+      `;
+    list.appendChild(row);
+  });
+  expenses.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.amount}</td>
+        <td>${item.category}</td>
+        <td>${item.date}</td>
+      `;
+    list.appendChild(row);
+  });
+};
+
+window.addEventListener("load", addTableBody);
 
 const inputChange = (inputElement, storage, key) => {
   inputElement.addEventListener("change", (event) => {
@@ -63,11 +91,13 @@ inputChange(expenseDate, expenseData, "date");
 incomeButton.addEventListener("click", () => {
   addIncome();
   updateTotals();
+  addTableBody();
 });
 
 expenseButton.addEventListener("click", () => {
   addExpense();
   updateTotals();
+  addTableBody();
 });
 
 const addExpense = () => {
