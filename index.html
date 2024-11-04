@@ -5,14 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <div class="page">
-      <nav class="navbar"></nav>
-      <body>
-        <section class="dashboard"></section>
-        <section class="income"></section>
-        <section class="expenses"></section>
-        <script src="./assets/scripts/index.js"></script>
-      </body>
+  <div class="page poppins-regular">
+    <nav class="navbar">
+      <h1 class="poppins-bold">Expense Tracker</h1>
+      <a href="">Dashboard</a>
+      <a href="">Income</a>
+      <a href="">Expenses</a>
+    </nav>
+    <body>
+      <section class="dashboard">
+        <div class="heading">
+            <div class="search-bar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-search"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+              <input type="text" />
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-circle-plus"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 12h8" />
+              <path d="M12 8v8" />
+            </svg>
+        </div>
+      </section>
+      <section class="income"></section>
+      <section class="expenses"></section>
+      <script src="./assets/scripts/index.js"></script>
+    </body>
   </div>
 </html>
