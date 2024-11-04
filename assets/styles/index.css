@@ -33,7 +33,7 @@ a {
 }
 
 a:hover {
-  color: #00f7ff;
+  color: #3e9c35;
   transition: all 0.2s ease-in-out;
 }
 
@@ -116,22 +116,84 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .modal{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 50%;
   height: 50%;
   background-color: #262d34;
   border-radius: 15px;
+  color: #fff;
 }
 
+.modal input, .modal select, .modal textarea{
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #7a7b7a;
+  color: #fff;
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  max-height: 100px;
+  outline: none;
+}
+
+
 .x-button{
-  position: absolute;
-  top: 260px;
-  right: 500px;
+  margin: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.input-fields{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 65%;
+}
+
+.input-fields div{
+  display: flex;
+  flex-direction: column;
+}
+
+.add-button{
+  transition: all 0.2s ease-in-out;
+}
+
+.add-button:hover{
+  cursor: pointer;
+  stroke: #3e9c35;
+  
+}
+
+.button-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.income-button{
+  background-color: #2d7027;
+  margin-right: 20px;
+}
+
+.expense-button{
+  background-color: #a30101;
+}
+
+.income-button ,.expense-button{
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  color: #fff;
+}
+
+.income-button:hover ,.expense-button:hover{
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1086px) {
@@ -166,9 +228,30 @@ b {
     width: 90%;
     border-radius: 15px;
   }
+  .modal{
+    width: 100%;
+    height: 80%;
+  }
+  .modal input, .modal select, .modal textarea{
+    padding: 5px ;
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 200px;
+  }
 }
 
 @media only screen and (max-width: 710px) {
+  .modal-container{
+    width: 100%;
+    height: 100vh;
+    background-color: #13131398;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
   .navbar {
     width: 100%;
     height: 20vh;
