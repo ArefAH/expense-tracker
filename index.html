@@ -38,11 +38,11 @@
         <div class="input-fields">
           <div>
             <label for="name">Name</label>
-            <input type="text" class="poppins-regular" />
+            <input id="expense-name" type="text" class="poppins-regular" />
           </div>
           <div>
             <label for="amount">Amount</label>
-            <input type="number" class="poppins-regular" />
+            <input id="expense-amount" type="number" class="poppins-regular" />
           </div>
           <div>
             <label for="category">Category</label>
@@ -59,10 +59,10 @@
           </div>
           <div>
             <label for="date">Date</label>
-            <input type="date" class="poppins-regular" />
+            <input type="date" class="poppins-regular" id="expense-date"/>
           </div>
           <span class="button-container">
-            <button id="expense-button" class="poppins-regular expense-button">
+            <button id="expense-button" class="poppins-bold expense-button">
               Expense
             </button>
           </span>
@@ -93,11 +93,11 @@
         <div class="input-fields">
           <div>
             <label for="name">Name</label>
-            <input type="text" class="poppins-regular" />
+            <input id="income-name" type="text" class="poppins-regular" />
           </div>
           <div>
             <label for="amount">Amount</label>
-            <input type="number" class="poppins-regular" />
+            <input id="income-amount" type="number" class="poppins-regular" />
           </div>
           <div>
             <label for="category">Category</label>
@@ -106,18 +106,18 @@
               name="category"
               class="poppins-regular"
             >
-              <option value="paycheck">Salary</option>
-              <option value="return">Investment Return</option>
+              <option value="Salary">Salary</option>
+              <option value="Investment Return">Investment Return</option>
               <option value="allowance">Allowance</option>
               <option value="bonus">Bonus</option>
             </select>
           </div>
           <div>
             <label for="date">Date</label>
-            <input type="date" class="poppins-regular" />
+            <input type="date" class="poppins-regular"  id="income-date"/>
           </div>
           <span class="button-container">
-            <button id="income-button" class="poppins-regular income-button">
+            <button id="income-button" class="poppins-bold income-button">
               Income
             </button>
           </span>
@@ -198,15 +198,15 @@
         <div class="banners">
           <div class="ballance">
             <h4>Ballance</h4>
-            <h1>10,000</h1>
+            <h1 id="ballance">0</h1>
           </div>
           <div class="total-income">
             <h4>Total Income</h4>
-            <h1>10,000</h1>
+            <h1 id="total-income">0</h1>
           </div>
           <div class="total-expense">
             <h4>Total Expenses</h4>
-            <h1>10,000</h1>
+            <h1 id="total-expense">0</h1>
           </div>
         </div>
         <div class="list-container">
