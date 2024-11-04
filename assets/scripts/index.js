@@ -1,7 +1,13 @@
-addButton.addEventListener('click',()=>{
-    modalContainer.classList.toggle("hidden")
+addIncome.addEventListener('click',()=>{
+    incomeModal.classList.toggle("hidden")
+})
+addExpense.addEventListener('click',()=>{
+    expenseModal.classList.toggle("hidden")
 })
 
-xButton.addEventListener('click', ()=>{
-    modalContainer.classList.toggle("hidden")
+expenseCancel.addEventListener('click', ()=>{
+    expenseModal.classList.toggle("hidden")
+})
+incomeCancel.addEventListener('click', ()=>{
+    incomeModal.classList.toggle("hidden")
 })

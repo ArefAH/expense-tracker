@@ -32,13 +32,9 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-a:hover {
-  color: #3e9c35;
-  transition: all 0.2s ease-in-out;
-}
-
 body {
   background-color: #0e1319;
+  overflow-y: hidden;
 }
 
 b {
@@ -56,6 +52,7 @@ b {
   gap: 30px;
   border-radius: 0 15px 15px 0;
 }
+
 .tab {
   display: flex;
   align-items: center;
@@ -63,6 +60,12 @@ b {
   text-align: center;
   height: 50px;
   gap: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab:hover{
+  color: #2dd5e2;
+  transition: all 0.2s ease-in-out;
 }
 
 .logo h1 {
@@ -91,7 +94,7 @@ b {
   gap: 20px;
   padding: 20px;
   margin: 20px;
-  width: 50%;
+  width: 100%;
   border-radius: 15px;
 }
 
@@ -127,7 +130,7 @@ b {
   color: #fff;
 }
 
-.modal input, .modal select, .modal textarea{
+.modal input, .modal select{
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -139,7 +142,6 @@ b {
   max-height: 100px;
   outline: none;
 }
-
 
 .x-button{
   margin: 20px;
@@ -159,16 +161,6 @@ b {
 .input-fields div{
   display: flex;
   flex-direction: column;
-}
-
-.add-button{
-  transition: all 0.2s ease-in-out;
-}
-
-.add-button:hover{
-  cursor: pointer;
-  stroke: #3e9c35;
-  
 }
 
 .button-container{
@@ -196,6 +188,48 @@ b {
   cursor: pointer;
 }
 
+.banners{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.banners > div{
+  width: 300px;
+  height: 150px;
+  border-radius: 15px;
+  color: #fff;
+  padding: 40px;
+}
+.banners h1{
+  font-size: 36px;
+}
+
+.ballance, .total-expense{
+  background-color: #5725a8;
+}
+
+.total-income{
+  background-color: #9224bb;
+}
+
+.list-container{
+  background-color: #262d34;
+  border-radius: 15px 15px 0 0;
+  height: 65vh; 
+  overflow-y: scroll;
+  margin: 100px 50px;
+}
+
+.expense-list{
+  width: calc(100% - 100px);
+  text-align: left;
+  border-spacing: 30px;
+  color: #fff;
+}
+
+
 @media only screen and (max-width: 1086px) {
   .page {
     display: block;
@@ -203,13 +237,9 @@ b {
   .navbar {
     width: 100%;
     height: 10vh;
-    background-color: #262d34;
-    color: #7a7b7a;
-    padding: 30px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 50px;
     border-radius: 0 0 15px 15px;
   }
   .tabs {
@@ -218,21 +248,11 @@ b {
     gap: 30px;
     text-align: center;
   }
-  .search-bar {
-    background-color: #262d34;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    width: 90%;
-    border-radius: 15px;
-  }
   .modal{
     width: 100%;
     height: 80%;
   }
-  .modal input, .modal select, .modal textarea{
+  .modal input, .modal select{
     padding: 5px ;
     width: 300px;
     max-width: 300px;
@@ -241,7 +261,7 @@ b {
   }
 }
 
-@media only screen and (max-width: 710px) {
+@media only screen and (max-width: 844px) {
   .modal-container{
     width: 100%;
     height: 100vh;
@@ -253,28 +273,13 @@ b {
     z-index: 1;
   }
   .navbar {
-    width: 100%;
     height: 20vh;
-    background-color: #262d34;
-    color: #7a7b7a;
-    padding: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 50px;
     border-radius: 0 0 15px 15px;
-  }
-  .search-bar {
-    background-color: #262d34;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    width: 75%;
-    border-radius: 15px;
   }
   .tab {
     display: flex;
