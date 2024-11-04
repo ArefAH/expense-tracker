@@ -1,14 +1,14 @@
 let ballance = 0;
 let incomeValue = 0;
 let expensesValue = 0;
-let income = [];
+let income = JSON.parse(localStorage.getItem("income")) || [];
 let incomeData = {
   name: "",
   amount: 0,
   category: "",
   date: "",
 };
-let expenses = [];
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 let expenseData = {
   name: "",
   amount: 0,
@@ -16,6 +16,21 @@ let expenseData = {
   date: "",
 };
 
+const updateTotals = () => {
+  let totalIncomeValue = 0;
+  for (let item of income) {
+    totalIncomeValue += +item.amount;
+  }
+  let totalExpenseValue = 0;
+  for (let item of expenses) {
+    totalExpenseValue += +item.amount;
+  }
+  totalIncome.textContent = totalIncomeValue;
+  totalExpense.textContent = totalExpenseValue;
+  ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
+};
+
+window.addEventListener("load", updateTotals);
 
 const inputChange = (inputElement, storage, key) => {
   inputElement.addEventListener("change", (event) => {
@@ -47,17 +62,19 @@ inputChange(expenseDate, expenseData, "date");
 
 incomeButton.addEventListener("click", () => {
   addIncome();
-  localStorage.setItem("income", JSON.stringify(income));
+  updateTotals();
 });
 
 expenseButton.addEventListener("click", () => {
   addExpense();
-  localStorage.setItem("expenses", JSON.stringify(expenses));
+  updateTotals();
 });
 
 const addExpense = () => {
+  expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   const newExpense = { ...expenseData };
   expenses.push(newExpense);
+  localStorage.setItem("expenses", JSON.stringify(expenses));
   expenseData = {
     name: "",
     amount: 0,
@@ -66,8 +83,10 @@ const addExpense = () => {
   };
 };
 const addIncome = () => {
+  income = JSON.parse(localStorage.getItem("income")) || [];
   const newIncome = { ...incomeData };
   income.push(newIncome);
+  localStorage.setItem("income", JSON.stringify(income));
   incomeData = {
     name: "",
     amount: 0,
