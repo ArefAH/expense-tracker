@@ -93,4 +93,20 @@ const getTransaction = async (id) => {
 
 window.addEventListener("load", getTransaction(user_id));
 
+const addTableBody = () => {
+  list.innerHTML = "";
 
+  transactions.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.amount}</td>
+        <td>${item.category}</td>
+        <td>${item.note}</td>
+        <td>${item.date}</td>
+      `;
+    list.appendChild(row);
+  });
+};
+
+window.addEventListener("load", addTableBody);
