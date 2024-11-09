@@ -8,9 +8,10 @@ if (isset($_POST['name'],$_POST['amount'], $_POST['category'], $_POST['note'], $
     $category = $_POST['category'];
     $note = $_POST['note'];
     $user_id = $_POST['user_id'];
+    
 
     $query = $connection->prepare('INSERT INTO transaction (name, amount, category, note, user_id) VALUES ( ?, ?, ?, ?, ?)');
-    $query->bind_param('sdssi', $name,$amount, $category, $note, $user_id);
+    $query->bind_param('sdssi', $name , $amount, $category, $note, $user_id);
 
     if ($query->execute()) {
         echo json_encode([
