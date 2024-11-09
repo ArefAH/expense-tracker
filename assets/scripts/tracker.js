@@ -79,3 +79,18 @@ const addTransaction = async () => {
   }
 };
 
+const getTransaction = async (id) => {
+  const response = await axios.get(
+    `http://localhost/expense-tracker/assets/server/getTransaction.php`,
+    {
+      params: { id: id },
+    }
+  );
+  transactions.length = 0;
+  transactions.push(...response.data);
+  console.log(transactions);
+};
+
+window.addEventListener("load", getTransaction(user_id));
+
+
