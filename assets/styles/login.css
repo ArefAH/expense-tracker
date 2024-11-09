@@ -1,0 +1,53 @@
+.login {
+    background-color: #262d34;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.input-container{
+    background-color: #5725a8;
+    padding: 150px;
+    border-radius: 15px;
+}
+
+.input-container > div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.login-button, .signup-button{
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+}
+
+.login-button{
+    background-color: #9224bb;
+}
+
+.signup-button{
+    background-color: #262d34;
+}
+input{
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    color: #131313;
+    width: 400px;
+    max-width: 400px;
+    min-width: 400px;
+    max-height: 100px;
+    outline: none;
+  }
