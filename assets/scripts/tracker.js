@@ -75,7 +75,20 @@ const getTransaction = async (id) => {
 
 window.addEventListener("load", getTransaction(user_id));
 
-
+const deleteTransaction = async (transactionId) => {
+  const response = await axios.get(
+    "http://localhost/expense-tracker/assets/server/deleteTransaction.php",
+    {
+      params: { transaction_id: transactionId }
+    }
+  );
+  const result = response.data;
+  if (result.status === "Successful") {
+    transactions = transactions.filter(transaction => transaction.id !== transactionId);
+    addTableBody();
+    updateTotals();
+  }
+}
 
 const addTableBody = () => {
   list.innerHTML = "";
@@ -91,7 +104,16 @@ const addTableBody = () => {
         <td>${item.date}</td>
       `;
     list.appendChild(row);
-    
+    row.addEventListener("click", ()=>{
+      deleteModal.classList.toggle("hidden")
+      yes.addEventListener("click", ()=>{
+        deleteTransaction(item.id);
+        deleteModal.classList.toggle("hidden")
+      })
+      no.addEventListener("click",()=>{
+        deleteModal.classList.toggle("hidden")
+      })
+    })
   });
 };
 window.addEventListener("load", addTableBody);
