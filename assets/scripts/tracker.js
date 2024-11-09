@@ -1,7 +1,6 @@
-let ballance = 0;
-let incomeValue = 0;
-let expensesValue = 0;
 const user_id = localStorage.user_id;
+let income = [];
+let expenses = [];
 let transactions = [];
 let transactionData = {
   name: "",
@@ -10,22 +9,6 @@ let transactionData = {
   date: "",
   note: "",
 };
-
-// const updateTotals = () => {
-//   let totalIncomeValue = 0;
-//   for (let item of income) {
-//     totalIncomeValue += +item.amount;
-//   }
-//   let totalExpenseValue = 0;
-//   for (let item of expenses) {
-//     totalExpenseValue += +item.amount;
-//   }
-//   totalIncome.textContent = totalIncomeValue;
-//   totalExpense.textContent = totalExpenseValue;
-//   ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
-// };
-
-// window.addEventListener("load", updateTotals);
 
 const inputChange = (inputElement, storage, key) => {
   inputElement.addEventListener("change", (event) => {
@@ -49,9 +32,66 @@ inputChange(transactionNote, transactionData, "note");
 
 transactionButton.addEventListener("click", () => {
   addTransaction();
-  // addTableBody();
-  // updateTotals();
+  updateTotals();
 });
+
+const updateTotals = () => {
+  let totalIncomeValue = 0;
+  for (let item of income) {
+    totalIncomeValue += +item.amount;
+  }
+  let totalExpenseValue = 0;
+  for (let item of expenses) {
+    totalExpenseValue += +item.amount;
+  }
+  incomeAmount.textContent = totalIncomeValue;
+  expenseAmount.textContent = totalExpenseValue;
+  ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
+};
+
+window.addEventListener("load", updateTotals);
+
+const separateTransactions = () => {
+  income = transactions.filter(
+    (transaction) => transaction.category === "Income"
+  );
+  expenses = transactions.filter(
+    (transaction) => transaction.category === "Expense"
+  );
+  updateTotals();
+};
+
+const getTransaction = async (id) => {
+  const response = await axios.get(
+    `http://localhost/expense-tracker/assets/server/getTransaction.php`,
+    {
+      params: { id: id },
+    }
+  );
+  transactions.length = 0;
+  transactions.push(...response.data);
+  separateTransactions();
+};
+
+window.addEventListener("load", getTransaction(user_id));
+
+const addTableBody = () => {
+  list.innerHTML = "";
+
+  transactions.forEach((item) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.amount} $</td>
+        <td>${item.category}</td>
+        <td>${item.note}</td>
+        <td>${item.date}</td>
+      `;
+    list.appendChild(row);
+  });
+};
+
+window.addEventListener("load", addTableBody);
 
 const addTransaction = async () => {
   const data = new FormData();
@@ -72,41 +112,8 @@ const addTransaction = async () => {
   const result = await response.json();
 
   if (result.status === "Successful") {
-    alert("success");
     transactionModal.classList.toggle("hidden");
   } else {
     inputError.classList.remove("hidden");
   }
 };
-
-const getTransaction = async (id) => {
-  const response = await axios.get(
-    `http://localhost/expense-tracker/assets/server/getTransaction.php`,
-    {
-      params: { id: id },
-    }
-  );
-  transactions.length = 0;
-  transactions.push(...response.data);
-  console.log(transactions);
-};
-
-window.addEventListener("load", getTransaction(user_id));
-
-const addTableBody = () => {
-  list.innerHTML = "";
-
-  transactions.forEach((item) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.amount}</td>
-        <td>${item.category}</td>
-        <td>${item.note}</td>
-        <td>${item.date}</td>
-      `;
-    list.appendChild(row);
-  });
-};
-
-window.addEventListener("load", addTableBody);
