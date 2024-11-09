@@ -16,4 +16,8 @@ const signupButton = document.getElementById("signup-button")
 const username = document.getElementById("username")
 const password = document.getElementById("password")
 const inputError = document.getElementById("error");
+const data = document.querySelectorAll(".data");
+const deleteModal = document.getElementById("delete-modal")
+const yes = document.getElementById("yes")
+const no = document.getElementById("no")
 
