@@ -13,6 +13,7 @@ loginButton.addEventListener("click", async () => {
     }
   );
   if(response.data.status === "Login Successful"){
+    localStorage.setItem("user_id", response.data.user.id)
     window.location.href = "./tracker.html";
   }
 });

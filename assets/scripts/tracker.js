@@ -1,14 +1,16 @@
 let ballance = 0;
 let incomeValue = 0;
 let expensesValue = 0;
+const user_id = localStorage.user_id;
 let transactions = [];
 let transactionData = {
   name: "",
   amount: 0,
   category: "",
   date: "",
-  note: ""
+  note: "",
 };
+
 
 // const updateTotals = () => {
 //   let totalIncomeValue = 0;
@@ -24,26 +26,27 @@ let transactionData = {
 //   ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
 // };
 
-
 // window.addEventListener("load", updateTotals);
 
-const addTableBody = () => {
-  list.innerHTML = "";
 
-  transactions.forEach((item) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.amount}</td>
-        <td>${item.category}</td>
-        <td>${item.date}</td>
-        <td>${item.note}</td>
-      `;
-    list.appendChild(row);
-  });
-};
 
-window.addEventListener("load", addTableBody);
+// const addTableBody = () => {
+//   list.innerHTML = "";
+
+//   transactions.forEach((item) => {
+//     const row = document.createElement("tr");
+//     row.innerHTML = `
+//         <td>${item.name}</td>
+//         <td>${item.amount}</td>
+//         <td>${item.category}</td>
+//         <td>${item.date}</td>
+//         <td>${item.note}</td>
+//       `;
+//     list.appendChild(row);
+//   });
+// };
+
+// window.addEventListener("load", addTableBody);
 
 const inputChange = (inputElement, storage, key) => {
   inputElement.addEventListener("change", (event) => {
@@ -60,28 +63,16 @@ const toggleModal = (button, modal) => {
 toggleModal(transactionToggle, transactionModal);
 toggleModal(transactionCancel, transactionModal);
 
-inputChange(transactionName, incomeData, "name");
-inputChange(transactionAmount, incomeData, "amount");
-inputChange(transactionCategory, incomeData, "category");
-inputChange(transactionDate, incomeData, "date");
+inputChange(transactionName, transactionData, "name");
+inputChange(transactionAmount, transactionData, "amount");
+inputChange(transactionCategory, transactionData, "category");
+inputChange(transactionNote, transactionData, "note");
 
 transactionButton.addEventListener("click", () => {
   addTransaction();
-  updateTotals();
-  addTableBody();
-  transactionButton.classList.toggle('hidden')
+  // updateTotals();
+  // addTableBody();
 });
 
 
-const addTransaction = () => {
-  transactions = [];
-  const newTransaction = { ...transactionData };
-  transactions.push(newTransaction);
-  transactionData = {
-    name: "",
-    amount: 0,
-    category: "",
-    date: "",
-    note: ""
-  };
-};
+
