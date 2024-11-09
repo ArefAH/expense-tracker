@@ -14,11 +14,11 @@
   </head>
 
   <div class="page poppins-regular">
-    <div id="expense-modal" class="modal-container hidden">
+    <div id="transaction-modal" class="modal-container hidden">
       <div class="modal">
         <div class="x-button">
           <svg
-            id="expense-cancel"
+            id="transaction-cancel"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -38,97 +38,40 @@
         <div class="input-fields">
           <div>
             <label for="name">Name</label>
-            <input id="expense-name" type="text" class="poppins-regular" />
+            <input id="transaction-name" type="text" class="poppins-regular" />
           </div>
           <div>
             <label for="amount">Amount</label>
-            <input id="expense-amount" type="number" class="poppins-regular" />
+            <input id="transaction-amount" type="number" class="poppins-regular" />
           </div>
           <div>
             <label for="category">Category</label>
             <select
-              id="expense-category"
+              id="transaction-category"
               name="category"
               class="poppins-regular"
             >
               <option selected>Select Category</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Rent">Rent</option>
-              <option value="Health">Health</option>
-              <option value="Essentials">Essentials</option>
+              <option value="Expense">Expense</option>
+              <option value="Income">Income</option>
             </select>
           </div>
           <div>
-            <label for="date">Date</label>
-            <input type="date" class="poppins-regular" id="expense-date" />
+            <label for="note">Note</label>
+            <textarea name="note" id="transaction-note"></textarea>
           </div>
           <span class="button-container">
-            <button id="expense-button" class="poppins-bold expense-button">
-              Expense
+            <button id="transaction-button" class="poppins-bold transaction-button">
+              Add Transaction
             </button>
           </span>
         </div>
       </div>
     </div>
-    <div id="income-modal" class="modal-container hidden">
-      <div class="modal">
-        <div class="x-button">
-          <svg
-            id="income-cancel"
-            xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#fff"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-circle-x"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="m15 9-6 6" />
-            <path d="m9 9 6 6" />
-          </svg>
-        </div>
-        <div class="input-fields">
-          <div>
-            <label for="name">Name</label>
-            <input id="income-name" type="text" class="poppins-regular" />
-          </div>
-          <div>
-            <label for="amount">Amount</label>
-            <input id="income-amount" type="number" class="poppins-regular" />
-          </div>
-          <div>
-            <label for="category">Category</label>
-            <select
-              id="income-category"
-              name="category"
-              class="poppins-regular"
-            >
-              <option selected>Select Category</option>
-              <option value="Salary">Salary</option>
-              <option value="Investment Return">Investment Return</option>
-              <option value="allowance">Allowance</option>
-              <option value="bonus">Bonus</option>
-            </select>
-          </div>
-          <div>
-            <label for="date">Date</label>
-            <input type="date" class="poppins-regular" id="income-date" />
-          </div>
-          <span class="button-container">
-            <button id="income-button" class="poppins-bold income-button">
-              Income
-            </button>
-          </span>
-        </div>
-      </div>
-    </div>
+   
     <nav class="navbar">
       <div class="logo">
-        <h1 class="poppins-bold">Expense Tracker</h1>
+        <h1 class="poppins-bold">Transaction Tracker</h1>
       </div>
       <div class="tabs">
         <a class="tab" href=""
@@ -150,7 +93,7 @@
             <rect width="7" height="5" x="3" y="16" rx="1" /></svg
           >Dashboard</a
         >
-        <p class="tab" id="add-income">
+        <p class="tab" id="add-transaction">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -167,29 +110,7 @@
               d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
             />
             <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg
-          >Add Income
-        </p>
-        <p class="tab" id="add-expense">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-hand-coins"
-          >
-            <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
-            <path
-              d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"
-            />
-            <path d="m2 16 6 6" />
-            <circle cx="16" cy="9" r="2.9" />
-            <circle cx="6" cy="5" r="3" /></svg
-          >Add Expense
+          >Add Transaction
         </p>
       </div>
     </nav>
@@ -211,7 +132,7 @@
           </div>
         </div>
         <div class="list-container">
-          <table class="expense-list">
+          <table class="transaction-list">
             <thead>
               <tr>
                 <th>Name</th>
@@ -220,7 +141,7 @@
                 <th>Date</th>
               </tr>
             </thead>
-            <tbody id="expense-list">
+            <tbody id="transaction-list">
 
             </tbody>
           </table>

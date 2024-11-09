@@ -109,7 +109,7 @@ b {
   color: #fff;
 }
 
-.modal input, .modal select{
+.modal input, .modal select, .modal textarea{
   padding: 10px;
   border: none;
   border-radius: 15px;
@@ -147,23 +147,18 @@ b {
   flex-direction: row;
 }
 
-.income-button{
-  background-color: #2d7027;
-  margin-right: 20px;
+.transaction-button{
+  background-color: #5725a8;
 }
 
-.expense-button{
-  background-color: #a30101;
-}
-
-.income-button ,.expense-button{
+.transaction-button{
   padding: 10px 20px;
   border-radius: 15px;
   border: none;
   color: #fff;
 }
 
-.income-button:hover ,.expense-button:hover{
+.transaction-button:hover{
   cursor: pointer;
 }
 
@@ -202,7 +197,7 @@ b {
   margin: 100px 50px;
 }
 
-.expense-list{
+.transaction-list{
   width: calc(100% - 100px);
   text-align: left;
   border-spacing: 30px;
