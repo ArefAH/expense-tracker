@@ -1,58 +1,43 @@
 let ballance = 0;
 let incomeValue = 0;
 let expensesValue = 0;
-let income = JSON.parse(localStorage.getItem("income")) || [];
-let incomeData = {
+let transactions = [];
+let transactionData = {
   name: "",
   amount: 0,
   category: "",
   date: "",
-};
-let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-let expenseData = {
-  name: "",
-  amount: 0,
-  category: "",
-  date: "",
+  note: ""
 };
 
-const updateTotals = () => {
-  let totalIncomeValue = 0;
-  for (let item of income) {
-    totalIncomeValue += +item.amount;
-  }
-  let totalExpenseValue = 0;
-  for (let item of expenses) {
-    totalExpenseValue += +item.amount;
-  }
-  totalIncome.textContent = totalIncomeValue;
-  totalExpense.textContent = totalExpenseValue;
-  ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
-};
+// const updateTotals = () => {
+//   let totalIncomeValue = 0;
+//   for (let item of income) {
+//     totalIncomeValue += +item.amount;
+//   }
+//   let totalExpenseValue = 0;
+//   for (let item of expenses) {
+//     totalExpenseValue += +item.amount;
+//   }
+//   totalIncome.textContent = totalIncomeValue;
+//   totalExpense.textContent = totalExpenseValue;
+//   ballanceAmount.textContent = totalIncomeValue - totalExpenseValue;
+// };
 
 
-window.addEventListener("load", updateTotals);
+// window.addEventListener("load", updateTotals);
 
 const addTableBody = () => {
   list.innerHTML = "";
 
-  income.forEach((item) => {
+  transactions.forEach((item) => {
     const row = document.createElement("tr");
     row.innerHTML = `
         <td>${item.name}</td>
         <td>${item.amount}</td>
         <td>${item.category}</td>
         <td>${item.date}</td>
-      `;
-    list.appendChild(row);
-  });
-  expenses.forEach((item) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td>${item.name}</td>
-        <td>${item.amount}</td>
-        <td>${item.category}</td>
-        <td>${item.date}</td>
+        <td>${item.note}</td>
       `;
     list.appendChild(row);
   });
@@ -72,55 +57,31 @@ const toggleModal = (button, modal) => {
   });
 };
 
-toggleModal(incomeToggle, incomeModal);
-toggleModal(expenseToggle, expenseModal);
-toggleModal(expenseCancel, expenseModal);
-toggleModal(incomeCancel, incomeModal);
-toggleModal(incomeButton, incomeModal);
-toggleModal(expenseButton, expenseModal);
+toggleModal(transactionToggle, transactionModal);
+toggleModal(transactionCancel, transactionModal);
 
-inputChange(incomeName, incomeData, "name");
-inputChange(incomeAmount, incomeData, "amount");
-inputChange(incomeCategory, incomeData, "category");
-inputChange(incomeDate, incomeData, "date");
-inputChange(expenseName, expenseData, "name");
-inputChange(expenseAmount, expenseData, "amount");
-inputChange(expenseCategory, expenseData, "category");
-inputChange(expenseDate, expenseData, "date");
+inputChange(transactionName, incomeData, "name");
+inputChange(transactionAmount, incomeData, "amount");
+inputChange(transactionCategory, incomeData, "category");
+inputChange(transactionDate, incomeData, "date");
 
-incomeButton.addEventListener("click", () => {
-  addIncome();
+transactionButton.addEventListener("click", () => {
+  addTransaction();
   updateTotals();
   addTableBody();
+  transactionButton.classList.toggle('hidden')
 });
 
-expenseButton.addEventListener("click", () => {
-  addExpense();
-  updateTotals();
-  addTableBody();
-});
 
-const addExpense = () => {
-  expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-  const newExpense = { ...expenseData };
-  expenses.push(newExpense);
-  localStorage.setItem("expenses", JSON.stringify(expenses));
-  expenseData = {
+const addTransaction = () => {
+  transactions = [];
+  const newTransaction = { ...transactionData };
+  transactions.push(newTransaction);
+  transactionData = {
     name: "",
     amount: 0,
     category: "",
     date: "",
-  };
-};
-const addIncome = () => {
-  income = JSON.parse(localStorage.getItem("income")) || [];
-  const newIncome = { ...incomeData };
-  income.push(newIncome);
-  localStorage.setItem("income", JSON.stringify(income));
-  incomeData = {
-    name: "",
-    amount: 0,
-    category: "",
-    date: "",
+    note: ""
   };
 };
