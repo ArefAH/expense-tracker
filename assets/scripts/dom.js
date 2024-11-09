@@ -9,3 +9,7 @@ const transactionDate = document.getElementById("transaction-date");
 const ballanceAmount = document.getElementById("ballance");
 const totalTransaction = document.getElementById("total-transaction");
 const list = document.getElementById("expense-list");
+const loginButton = document.getElementById("login-button")
+const signupButton = document.getElementById("signup-button")
+const username = document.getElementById("username")
+const password = document.getElementById("password")
