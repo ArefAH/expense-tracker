@@ -1,12 +1,13 @@
 <?php
 include 'connection.php';
 $id = $_GET["id"];
-$query = $connection->prerpare("SELECT * FROM products WHERE user_id = ?");
+$query = $connection->prepare("SELECT * FROM transaction WHERE user_id = ?");
 $query->bind_param("i", $id);
 $query->execute();
+$result = $query -> get_result();
 if($result -> num_rows != 0 ){
     $array = [];
-    while($row = $result -> fetch_assoc){
+    while($row = $result -> fetch_assoc()){
         $array[] = $row;
     }
 

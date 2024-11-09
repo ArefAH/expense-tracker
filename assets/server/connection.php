@@ -7,7 +7,7 @@ header("Access-Control-Allow-Methods: POST, GET");
 $host = 'localhost';
 $username = 'root';
 $pass = '';
-$dbname = 'trackerdb';
+$dbname = 'expense_tracker';
 
 $connection = new mysqli($host, $username, $pass, $dbname);
 

@@ -12,8 +12,7 @@ loginButton.addEventListener("click", async () => {
       data: data,
     }
   );
-
   if(response.data.status === "Login Successful"){
-    window.location.href = "/tracker.html";
+    window.location.href = "./tracker.html";
   }
 });
